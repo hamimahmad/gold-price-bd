@@ -32,9 +32,9 @@ export function useGoldPrice() {
         if (!res.ok) throw new Error("Failed to fetch gold prices");
         const data = await res.json();
 
-        if (!data.rates?.BDT) throw new Error("Invalid API response");
+        if (!data.rates?.XAU) throw new Error("Invalid API response");
 
-        const ouncePrice = 1 / data.rates.BDT;
+        const ouncePrice = 1 / data.rates.XAU;
         const gram24 = ouncePrice / OUNCE_TO_GRAM;
         const bhori24 = gram24 * BHORI_GRAMS;
 
