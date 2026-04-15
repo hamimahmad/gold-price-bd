@@ -1,9 +1,22 @@
 import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
+import heroGold from "@/assets/hero-gold.jpg";
 
 export default function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+      {/* Background image */}
+      <div className="absolute inset-0">
+        <img
+          src={heroGold}
+          alt="Gold bars and coins"
+          width={1920}
+          height={1080}
+          className="w-full h-full object-cover opacity-30"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/80 to-background" />
+      </div>
+
       {/* Ambient glow */}
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-primary/10 blur-[120px] pointer-events-none" />
 

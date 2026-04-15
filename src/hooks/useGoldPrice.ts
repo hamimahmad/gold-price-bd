@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 const API_KEY = "1abccd86ff5083a441d2ced9e31a6f25";
-const API_URL = `https://api.metalpriceapi.com/v1/latest?api_key=${API_KEY}&base=XAU&currencies=BDT`;
+const API_URL = `https://api.metalpriceapi.com/v1/latest?api_key=${API_KEY}&base=BDT&currencies=XAU`;
 
 const OUNCE_TO_GRAM = 31.1035;
 const BHORI_GRAMS = 11.664;
@@ -32,9 +32,9 @@ export function useGoldPrice() {
         if (!res.ok) throw new Error("Failed to fetch gold prices");
         const data = await res.json();
 
-        if (!data.rates?.BDT) throw new Error("Invalid API response");
+        if (!data.rates?.XAU) throw new Error("Invalid API response");
 
-        const ouncePrice = 1 / data.rates.BDT;
+        const ouncePrice = 1 / data.rates.XAU;
         const gram24 = ouncePrice / OUNCE_TO_GRAM;
         const bhori24 = gram24 * BHORI_GRAMS;
 
